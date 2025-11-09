@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Génesis - Capítulo 1</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="bg-stone-100">
+
+    <div class="main-layout">
+        
+        <main>
+            <header class="text-center mb-10 border-b-2 border-stone-300 pb-5">
+                <h1 id="main-title" class="text-5xl textum-classicum text-gray-800"></h1>
+                <h2 id="subtitle" class="text-2xl text-gray-600 mt-2"></h2>
+                <p id="author" class="text-xl text-gray-500 mt-4"></p>
+            </header>
+            
+            <section class="mb-6">
+                <h3 id="context-title" class="text-2xl font-semibold text-gray-700 mb-2"></h3>
+                <div id="context-content" class="text-justify bg-white p-6 rounded-lg shadow-lg space-y-4"></div>
+            </section>
+            
+            <section>
+                <h3 id="text-title" class="text-2xl font-semibold text-gray-700 mb-2"></h3>
+                <div id="paragrafus-contentus" class="textum-classicum text-xl leading-relaxed text-justify bg-white p-8 lg:p-12 rounded-lg shadow-lg">
+                </div>
+            </section>
+            
+            <footer class="text-center mt-6 text-sm text-gray-500">
+                <p><a href="index.html" style="text-decoration: underline;">Volver al Índice</a></p>
+                <p id="footer-text"></p>
+            </footer>
+        </main>
+
+        <aside id="marginalia-sinistra" class="bg-white p-6 rounded-t-lg lg:rounded-lg overflow-y-auto">
+            <div id="language-switcher" class="mb-4">
+                <button data-lang="es" class="lang-btn active-lang">Español</button>
+                <button data-lang="en" class="lang-btn">English</button>
+                <button data-lang="zh" class="lang-btn">中文 (繁體)</button>
+            </div>
+            <div id="marginalia-contentus"></div>
+        </aside>
+    </div>
+
+    <script src="datos_capitulo1.js"></script>
+    <script src="logica.js"></script>
+
+</body>
+</html>

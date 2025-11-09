@@ -6,18 +6,15 @@
     <title>Génesis - Índice de Capítulos</title>
     <link rel="stylesheet" href="estilos.css">
     <style>
-        /* Estilos adicionales para el índice de capítulos (Idénticos al modelo) */
         body { background-color: #f3f0e9; }
         .index-container { text-align: center; background-color: white; padding: 2rem 3rem; margin: 2rem auto; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); max-width: 90%; width: 1200px;}
         .index-container h1 { font-family: 'Georgia', 'Times New Roman', serif; font-size: 2.5rem; margin-bottom: 0.5rem; color: #333; }
         .index-container h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.25rem; margin-bottom: 1.5rem; color: #555; font-weight: 400;}
-
-        /* Rejilla para la lista de capítulos */
         .chapter-grid {
             list-style: none;
             padding: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1rem;
             text-align: left;
         }
@@ -47,25 +44,7 @@
             opacity: 0.8;
             margin-top: 0.25rem;
         }
-
         #language-switcher { max-width: 300px; margin: 0 auto 1.5rem auto; }
-        
-        /* Estilos de los botones de idioma (asumiendo que están en estilos.css, pero los replico por si acaso) */
-        .lang-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .lang-btn:hover {
-            background-color: #eee;
-        }
-        .lang-btn.active-lang {
-            background-color: #4a4a4a;
-            color: white;
-            border-color: #4a4a4a;
-        }
     </style>
 </head>
 <body>
@@ -77,10 +56,10 @@
         </div>
 
         <h1 id="main-title">Génesis</h1>
-        <h2 id="subtitle">Libro Primero de Moisés</h2>
+        <h2 id="subtitle">Vulgata Latina</h2>
 
         <ul class="chapter-grid">
-            </ul>
+        </ul>
     </div>
 
 <script>
@@ -91,77 +70,75 @@ document.addEventListener('DOMContentLoaded', () => {
     const subtitle = document.getElementById('subtitle');
     const langSwitcher = document.getElementById('language-switcher');
     
-    // Objeto con todas las traducciones para el GÉNESIS
     const translations = {
         es: {
             mainTitle: "Génesis",
-            subtitle: "Libro Primero de Moisés",
+            subtitle: "Vulgata Latina",
             chapters: [
-                "Capítulo 1: La Creación del mundo", "Capítulo 2: El Jardín del Edén y la creación de la mujer", "Capítulo 3: La Caída y la expulsión del Edén", "Capítulo 4: Caín y Abel",
-                "Capítulo 5: Genealogía de Adán a Noé", "Capítulo 6: La maldad de la humanidad y el arca de Noé", "Capítulo 7: El Diluvio universal", "Capítulo 8: El fin del Diluvio y el pacto con Noé",
-                "Capítulo 9: El pacto del arcoíris y la embriaguez de Noé", "Capítulo 10: Las naciones descendientes de Noé", "Capítulo 11: La Torre de Babel", "Capítulo 12: El llamado de Abram y su viaje a Egipto",
-                "Capítulo 13: Abram y Lot se separan", "Capítulo 14: Abram rescata a Lot", "Capítulo 15: El pacto de Dios con Abram", "Capítulo 16: Agar e Ismael",
-                "Capítulo 17: El pacto de la circuncisión (Abraham)", "Capítulo 18: Abraham y los tres visitantes", "Capítulo 19: La destrucción de Sodoma y Gomorra", "Capítulo 20: Abraham y Abimelec en Gerar",
-                "Capítulo 21: El nacimiento de Isaac", "Capítulo 22: La prueba de Abraham (el sacrificio de Isaac)", "Capítulo 23: Muerte y sepultura de Sara", "Capítulo 24: Isaac y Rebeca",
-                "Capítulo 25: Muerte de Abraham; nacimiento de Esaú y Jacob", "Capítulo 26: Isaac y Abimelec", "Capítulo 27: Jacob obtiene la bendición de Isaac", "Capítulo 28: El sueño de Jacob en Betel (la escalera)",
-                "Capítulo 29: Jacob, Raquel y Lea", "Capítulo 30: Los hijos de Jacob", "Capítulo 31: Jacob huye de Labán", "Capítulo 32: Jacob lucha con el ángel (Israel)",
-                "Capítulo 33: Jacob se reconcilia con Esaú", "Capítulo 34: La deshonra de Dina", "Capítulo 35: Jacob regresa a Betel; muerte de Raquel", "Capítulo 36: Los descendientes de Esaú (Edom)",
-                "Capítulo 37: Los sueños de José y su venta a Egipto", "Capítulo 38: Judá y Tamar", "Capítulo 39: José y la esposa de Potifar", "Capítulo 40: José interpreta los sueños del copero y el panadero",
-                "Capítulo 41: José interpreta los sueños del Faraón", "Capítulo 42: Los hermanos de José van a Egipto", "Capítulo 43: El segundo viaje a Egipto", "Capítulo 44: La copa de José y la súplica de Judá",
-                "Capítulo 45: José se da a conocer a sus hermanos", "Capítulo 46: Jacob y su familia se mudan a Egipto", "Capítulo 47: Jacob ante el Faraón; la hambruna", "Capítulo 48: Jacob bendice a Efraín y Manasés",
-                "Capítulo 49: Las bendiciones proféticas de Jacob", "Capítulo 50: Muerte de Jacob y muerte de José"
+                "Capítulo 1: La Creación", "Capítulo 2: El Jardín del Edén", "Capítulo 3: La Caída", "Capítulo 4: Caín y Abel",
+                "Capítulo 5: Genealogía de Adán a Noé", "Capítulo 6: El Arca de Noé", "Capítulo 7: El Diluvio", "Capítulo 8: El fin del Diluvio",
+                "Capítulo 9: Pacto de Dios con Noé", "Capítulo 10: Las naciones", "Capítulo 11: La Torre de Babel", "Capítulo 12: El llamado de Abram",
+                "Capítulo 13: Abram y Lot se separan", "Capítulo 14: Abram rescata a Lot", "Capítulo 15: Pacto de Dios con Abram", "Capítulo 16: Agar e Ismael",
+                "Capítulo 17: La circuncisión (Abraham)", "Capítulo 18: Los tres visitantes", "Capítulo 19: Sodoma y Gomorra", "Capítulo 20: Abraham y Abimelec",
+                "Capítulo 21: Nacimiento de Isaac", "Capítulo 22: El sacrificio de Isaac", "Capítulo 23: Muerte de Sara", "Capítulo 24: Isaac y Rebeca",
+                "Capítulo 25: Esaú y Jacob", "Capítulo 26: Isaac y Abimelec", "Capítulo 27: Jacob obtiene la bendición", "Capítulo 28: El sueño de Jacob",
+                "Capítulo 29: Jacob, Raquel y Lea", "Capítulo 30: Los hijos de Jacob", "Capítulo 31: Jacob huye de Labán", "Capítulo 32: Jacob lucha con el ángel",
+                "Capítulo 33: Jacob y Esaú se reconcilian", "Capítulo 34: El caso de Dina", "Capítulo 35: Jacob regresa a Betel", "Capítulo 36: Descendientes de Esaú",
+                "Capítulo 37: Los sueños de José", "Capítulo 38: Judá y Tamar", "Capítulo 39: José y la esposa de Potifar", "Capítulo 40: Los sueños del copero y el panadero",
+                "Capítulo 41: José interpreta los sueños del Faraón", "Capítulo 42: Los hermanos de José en Egipto", "Capítulo 43: El segundo viaje a Egipto", "Capítulo 44: La copa de José",
+                "Capítulo 45: José se revela", "Capítulo 46: Jacob se muda a Egipto", "Capítulo 47: Jacob ante el Faraón", "Capítulo 48: Jacob bendice a Efraín y Manasés",
+                "Capítulo 49: Bendiciones de Jacob", "Capítulo 50: Muerte de Jacob y José"
             ]
         },
         en: {
             mainTitle: "Genesis",
-            subtitle: "The First Book of Moses",
+            subtitle: "Latin Vulgate",
             chapters: [
-                "Chapter 1: The Creation of the world", "Chapter 2: The Garden of Eden and the creation of woman", "Chapter 3: The Fall and the expulsion from Eden", "Chapter 4: Cain and Abel",
-                "Chapter 5: Genealogy from Adam to Noah", "Chapter 6: The wickedness of humanity and Noah's ark", "Chapter 7: The great Flood", "Chapter 8: The end of the Flood and the covenant with Noah",
-                "Chapter 9: The rainbow covenant and Noah's drunkenness", "Chapter 10: The nations descending from Noah", "Chapter 11: The Tower of Babel", "Chapter 12: The call of Abram and his journey to Egypt",
-                "Chapter 13: Abram and Lot separate", "Chapter 14: Abram rescues Lot", "Chapter 15: God's covenant with Abram", "Chapter 16: Hagar and Ishmael",
-                "Chapter 17: The covenant of circumcision (Abraham)", "Chapter 18: Abraham and the three visitors", "Chapter 19: The destruction of Sodom and Gomorrah", "Chapter 20: Abraham and Abimelech in Gerar",
-                "Chapter 21: The birth of Isaac", "Chapter 22: The testing of Abraham (the sacrifice of Isaac)", "Chapter 23: The death and burial of Sarah", "Chapter 24: Isaac and Rebekah",
-                "Chapter 25: Death of Abraham; birth of Esau and Jacob", "Chapter 26: Isaac and Abimelech", "Chapter 27: Jacob obtains Isaac's blessing", "Chapter 28: Jacob's dream at Bethel (the ladder)",
-                "Chapter 29: Jacob, Rachel, and Leah", "Chapter 30: The sons of Jacob", "Chapter 31: Jacob flees from Laban", "Chapter 32: Jacob wrestles with the angel (Israel)",
-                "Chapter 33: Jacob reconciles with Esau", "Chapter 34: The defilement of Dinah", "Chapter 35: Jacob returns to Bethel; death of Rachel", "Chapter 36: The descendants of Esau (Edom)",
-                "Chapter 37: Joseph's dreams and his sale into Egypt", "Chapter 38: Judah and Tamar", "Chapter 39: Joseph and Potiphar's wife", "Chapter 40: Joseph interprets the cupbearer's and baker's dreams",
-                "Chapter 41: Joseph interprets Pharaoh's dreams", "Chapter 42: Joseph's brothers go to Egypt", "Chapter 43: The second journey to Egypt", "Chapter 44: Joseph's cup and Judah's plea",
-                "Chapter 45: Joseph reveals himself to his brothers", "Chapter 46: Jacob and his family move to Egypt", "Chapter 47: Jacob before Pharaoh; the famine", "Chapter 48: Jacob blesses Ephraim and Manasseh",
-                "Chapter 49: Jacob's prophetic blessings", "Chapter 50: The death of Jacob and the death of Joseph"
+                "Chapter 1: The Creation", "Chapter 2: The Garden of Eden", "Chapter 3: The Fall", "Chapter 4: Cain and Abel",
+                "Chapter 5: Genealogy from Adam to Noah", "Chapter 6: Noah's Ark", "Chapter 7: The Flood", "Chapter 8: The end of the Flood",
+                "Chapter 9: God's Covenant with Noah", "Chapter 10: The Nations", "Chapter 11: The Tower of Babel", "Chapter 12: The Call of Abram",
+                "Chapter 13: Abram and Lot Separate", "Chapter 14: Abram Rescues Lot", "Chapter 15: God's Covenant with Abram", "Chapter 16: Hagar and Ishmael",
+                "Chapter 17: Circumcision (Abraham)", "Chapter 18: The Three Visitors", "Chapter 19: Sodom and Gomorrah", "Chapter 20: Abraham and Abimelech",
+                "Chapter 21: Birth of Isaac", "Chapter 22: The Sacrifice of Isaac", "Chapter 23: Death of Sarah", "Chapter 24: Isaac and Rebekah",
+                "Chapter 25: Esau and Jacob", "Chapter 26: Isaac and Abimelech", "Chapter 27: Jacob Gains the Blessing", "Chapter 28: Jacob's Dream",
+                "Chapter 29: Jacob, Rachel, and Leah", "Chapter 30: The Sons of Jacob", "Chapter 31: Jacob Flees Laban", "Chapter 32: Jacob Wrestles the Angel",
+                "Chapter 33: Jacob and Esau Reconcile", "Chapter 34: The Dinah Incident", "Chapter 35: Jacob Returns to Bethel", "Chapter 36: Descendants of Esau",
+                "Chapter 37: Joseph's Dreams", "Chapter 38: Judah and Tamar", "Chapter 39: Joseph and Potiphar's Wife", "Chapter 40: The Cupbearer and the Baker",
+                "Chapter 41: Joseph Interprets Pharaoh's Dreams", "Chapter 42: Joseph's Brothers in Egypt", "Chapter 43: The Second Journey to Egypt", "Chapter 44: Joseph's Cup",
+                "Chapter 45: Joseph Reveals Himself", "Chapter 46: Jacob Moves to Egypt", "Chapter 47: Jacob Before Pharaoh", "Chapter 48: Jacob Blesses Ephraim and Manasseh",
+                "Chapter 49: Jacob's Blessings", "Chapter 50: Death of Jacob and Joseph"
             ]
         },
         zh: {
             mainTitle: "創世記",
-            subtitle: "摩西五經卷一",
+            subtitle: "拉丁武加大譯本",
             chapters: [
-                "第 1 章：世界的創造", "第 2 章：伊甸園與女人的創造", "第 3 章：人類的墮落與逐出伊甸", "第 4 章：該隱與亞伯",
-                "第 5 章：亞當至挪亞的家譜", "第 6 章：人類的敗壞與挪亞方舟", "第 7 章：大洪水", "第 8 章：洪水結束與挪亞之約",
-                "第 9 章：彩虹之約與挪亞醉酒", "第 10 章：挪亞後裔的邦國", "第 11 章：巴別塔", "第 12 章：上帝呼召亞伯蘭並其下埃及",
+                "第 1 章：創造", "第 2 章：伊甸園", "第 3 章：墮落", "第 4 章：該隱與亞伯",
+                "第 5 章：亞當至挪亞的家譜", "第 6 章：挪亞方舟", "第 7 章：大洪水", "第 8 章：洪水結束",
+                "第 9 章：上帝與挪亞立約", "第 10 章：萬國", "第 11 章：巴別塔", "第 12 章：呼召亞伯蘭",
                 "第 13 章：亞伯蘭與羅得分開", "第 14 章：亞伯蘭營救羅得", "第 15 章：上帝與亞伯蘭立約", "第 16 章：夏甲與以實瑪利",
-                "第 17 章：割禮之約（亞伯拉罕）", "第 18 章：亞伯拉罕與三位訪客", "第 19 章：所多瑪與蛾摩拉的毀滅", "第 20 章：亞伯拉罕與基拉耳王亞比米勒",
-                "第 21 章：以撒的誕生", "第 22 章：亞伯拉罕的試煉（獻上以撒）", "第 23 章：撒拉之死與安葬", "第 24 章：以撒與利百加",
-                "第 25 章：亞伯拉罕之死；以掃與雅各誕生", "第 26 章：以撒與亞比米勒", "第 27 章：雅各騙取以撒的祝福", "第 28 章：雅各在伯特利的夢（天梯）",
-                "第 29 章：雅各、拉結與利亞", "第 30 章：雅各的眾子", "第 31 章：雅各逃離拉班", "第 32 章：雅各與天使摔跤（以色列）",
-                "第 33 章：雅各與以掃和好", "第 34 章：底拿受辱", "第 35 章：雅各返回伯特利；拉結之死", "第 36 章：以掃的後代（以東）",
-                "第 37 章：約瑟的夢及其被賣至埃及", "第 38 章：猶大與他瑪", "第 39 章：約瑟與波提乏之妻", "第 40 章：約瑟為酒政和膳長解夢",
-                "第 41 章：約瑟為法老解夢", "第 42 章：約瑟的兄弟們來到埃及", "第 43 章：第二次埃及之行", "第 44 章：約瑟的銀杯與猶大的懇求",
-                "第 45 章：約瑟與兄弟相認", "第 46 章：雅各全家遷往埃及", "第 47 章：雅各見法老；饑荒時期", "第 48 章：雅各祝福以法蓮和瑪拿西",
-                "第 49 章：雅各的臨終祝福", "第 50 章：雅各之死與約瑟之死"
+                "第 17 章：割禮（亞伯拉罕）", "第 18 章：三位訪客", "第 19 章：所多瑪與蛾摩拉", "第 20 章：亞伯拉罕與亞比米勒",
+                "第 21 章：以撒的誕生", "第 22 章：獻上以撒", "第 23 章：撒拉之死", "第 24 章：以撒與利百加",
+                "第 25 章：以掃與雅各", "第 26 章：以撒與亞比米勒", "第 27 章：雅各騙取祝福", "第 28 章：雅各的夢",
+                "第 29 章：雅各、拉結與利亞", "第 30 章：雅各的眾子", "第 31 章：雅各逃離拉班", "第 32 章：雅各與天使摔跤",
+                "第 33 章：雅各與以掃和好", "第 34 章：底拿事件", "第 35 章：雅各返回伯特利", "第 36 章：以掃的後代",
+                "第 37 章：約瑟的夢", "第 38 章：猶大與他瑪", "第 39 章：約瑟與波提乏之妻", "第 40 章：酒政與膳長",
+                "第 41 章：約瑟為法老解夢", "第 42 章：約瑟的兄弟們在埃及", "第 43 章：第二次埃及之行", "第 44 章：約瑟的杯",
+                "第 45 章：約瑟表明身份", "第 46 章：雅各遷往埃及", "第 47 章：雅各見法老", "第 48 章：雅各祝福以法蓮和瑪拿西",
+                "第 49 章：雅各的祝福", "第 50 章：雅各與約瑟之死"
             ]
         }
     };
 
     function generateChapterLinks(lang) {
-        chapterList.innerHTML = ''; // Limpiar la lista actual
+        chapterList.innerHTML = '';
         const chapterTitles = translations[lang].chapters;
         
         chapterTitles.forEach((fullTitle, index) => {
             const chapterNum = index + 1;
-            // Usamos split(': ') igual que en tu modelo
             const parts = fullTitle.split(': ');
             const title = parts[0];
-            const description = parts.slice(1).join(': '); // Unir el resto por si había otros ':'
+            const description = parts.slice(1).join(': ');
 
             const listItem = document.createElement('li');
             const link = document.createElement('a');
@@ -174,14 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function changeLanguage(lang) {
-        // Actualizar títulos
         mainTitle.textContent = translations[lang].mainTitle;
         subtitle.textContent = translations[lang].subtitle;
 
-        // Regenerar la lista de capítulos en el nuevo idioma
         generateChapterLinks(lang);
 
-        // Actualizar el botón activo
         langSwitcher.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active-lang');
             if (btn.dataset.lang === lang) {
@@ -190,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Manejador de eventos para los botones
     langSwitcher.addEventListener('click', (e) => {
         if (e.target.tagName === 'BUTTON') {
             const lang = e.target.dataset.lang;
@@ -198,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Carga inicial en el idioma por defecto (español)
     changeLanguage('es');
 });
 </script>

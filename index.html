@@ -3,49 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Génesis - Capítulo 1</title>
+    <title>Génesis - Índice de Capítulos</title>
     <link rel="stylesheet" href="estilos.css">
-</head>
-<body class="bg-stone-100">
+    <style>
+        body { background-color: #f3f0e9; }
+        .index-container { text-align: center; background-color: white; padding: 2rem 3rem; margin: 2rem auto; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); max-width: 90%; width: 1200px;}
+        .index-container h1 { font-family: 'Georgia', 'Times New Roman', serif; font-size: 2.5rem; margin-bottom: 0.5rem; color: #333; }
+        .index-container h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.25rem; margin-bottom: 1.5rem; color: #555; font-weight: 400;}
 
-    <div class="main-layout">
+        .chapter-grid {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            text-align: left;
+        }
+        .chapter-grid li a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d6d3d1;
+            border-radius: 0.25rem;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .chapter-grid li a:hover {
+            background-color: #4a4a4a;
+            color: white;
+            border-color: #4a4a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .chapter-grid .chapter-title {
+            font-size: 0.85rem;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-top: 0.25rem;
+        }
+
+        #language-switcher { max-width: 300px; margin: 0 auto 1.5rem auto; }
         
-        <main>
-            <header class="text-center mb-10 border-b-2 border-stone-300 pb-5">
-                <h1 id="main-title" class="text-5xl textum-classicum text-gray-800"></h1>
-                <h2 id="subtitle" class="text-2xl text-gray-600 mt-2"></h2>
-                <p id="author" class="text-xl text-gray-500 mt-4"></p>
-            </header>
-            
-            <section class="mb-6">
-                <h3 id="context-title" class="text-2xl font-semibold text-gray-700 mb-2"></h3>
-                <div id="context-content" class="text-justify bg-white p-6 rounded-lg shadow-lg space-y-4"></div>
-            </section>
-            
-            <section>
-                <h3 id="text-title" class="text-2xl font-semibold text-gray-700 mb-2"></h3>
-                <div id="paragrafus-contentus" class="textum-classicum text-xl leading-relaxed text-justify bg-white p-8 lg:p-12 rounded-lg shadow-lg">
-                </div>
-            </section>
-            
-            <footer class="text-center mt-6 text-sm text-gray-500">
-                <p><a href="index.html" style="text-decoration: underline;">Volver al Índice</a></p>
-                <p id="footer-text"></p>
-            </footer>
-        </main>
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .lang-btn:hover {
+            background-color: #eee;
+        }
+        .lang-btn.active-lang {
+            background-color: #4a4a4a;
+            color: white;
+            border-color: #4a4a4a;
+        }
+    </style>
+</head>
+<body>
+    <div class="index-container">
+        <div id="language-switcher" class="mb-4">
+            <button data-lang="es" class="lang-btn active-lang">Español</button>
+            <button data-lang="en" class="lang-btn">English</button>
+            <button data-lang="zh" class="lang-btn">中文 (繁體)</button>
+        </div>
 
-        <aside id="marginalia-sinistra" class="bg-white p-6 rounded-t-lg lg:rounded-lg overflow-y-auto">
-            <div id="language-switcher" class="mb-4">
-                <button data-lang="es" class="lang-btn active-lang">Español</button>
-                <button data-lang="en" class="lang-btn">English</button>
-                <button data-lang="zh" class="lang-btn">中文 (繁體)</button>
-            </div>
-            <div id="marginalia-contentus"></div>
-        </aside>
+        <h1 id="main-title">Génesis</h1>
+        <h2 id="subtitle">Vulgata Latina</h2>
+
+        <ul class="chapter-grid">
+        </ul>
     </div>
 
-    <script src="datos_capitulo1.js"></script>
-    <script src="logica.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const chapterList = document.querySelector('.chapter-grid');
+    const mainTitle = document.getElementById('main-title');
+    const subtitle = document.getElementById('subtitle');
+    const langSwitcher = document.getElementById('language-switcher');
+    
+    const translations = {
+        es: {
+            mainTitle: "Génesis",
+            subtitle: "Vulgata Latina",
+            chapters: [
+                "Capítulo 1: La Creación del mundo", "Capítulo 2: El Jardín del Edén", "Capítulo 3: La Caída y la expulsión", "Capítulo 4: Caín y Abel",
+                "Capítulo 5: Genealogía de Adán a Noé", "Capítulo 6: La maldad humana y el Arca de Noé", "Capítulo 7: El Diluvio", "Capítulo 8: Fin del Diluvio y pacto",
+                "Capítulo 9: Pacto de Dios y embriaguez de Noé", "Capítulo 10: La tabla de las naciones", "Capítulo 11: La Torre de Babel", "Capítulo 12: El llamado de Abram",
+                "Capítulo 13: Separación de Abram y Lot", "Capítulo 14: Abram rescata a Lot", "Capítulo 15: El pacto de Dios con Abram", "Capítulo 16: Agar e Ismael",
+                "Capítulo 17: El pacto de la circuncisión", "Capítulo 18: Los tres visitantes", "Capítulo 19: Destrucción de Sodoma y Gomorra", "Capítulo 20: Abraham y Abimelec",
+                "Capítulo 21: Nacimiento de Isaac", "Capítulo 22: El sacrificio de Isaac", "Capítulo 23: Muerte y sepultura de Sara", "Capítulo 24: Isaac y Rebeca",
+                "Capítulo 25: Nacimiento de Esaú y Jacob", "Capítulo 26: Isaac y Abimelec", "Capítulo 27: Jacob obtiene la bendición", "Capítulo 28: El sueño de Jacob en Betel",
+                "Capítulo 29: Jacob, Lea y Raquel", "Capítulo 30: Los hijos de Jacob", "Capítulo 31: Jacob huye de Labán", "Capítulo 32: Jacob lucha con el ángel",
+                "Capítulo 33: Jacob y Esaú se reconcilian", "Capítulo 34: La deshonra de Dina", "Capítulo 35: Dios bendice a Jacob en Betel", "Capítulo 36: Descendientes de Esaú",
+                "Capítulo 37: Los sueños de José y su venta", "Capítulo 38: Judá y Tamar", "Capítulo 39: José y la esposa de Potifar", "Capítulo 40: José interpreta sueños en la cárcel",
+                "Capítulo 41: José interpreta los sueños del Faraón", "Capítulo 42: Los hermanos de José en Egipto", "Capítulo 43: Segundo viaje a Egipto", "Capítulo 44: La copa de José",
+                "Capítulo 45: José se da a conocer", "Capítulo 46: Jacob se traslada a Egipto", "Capítulo 47: Jacob ante el Faraón", "Capítulo 48: Jacob bendice a Efraín y Manasés",
+                "Capítulo 49: Bendiciones proféticas de Jacob", "Capítulo 50: Muerte de Jacob y José"
+            ]
+        },
+        en: {
+            mainTitle: "Genesis",
+            subtitle: "Latin Vulgate",
+            chapters: [
+                "Chapter 1: The Creation of the world", "Chapter 2: The Garden of Eden", "Chapter 3: The Fall and the expulsion", "Chapter 4: Cain and Abel",
+                "Chapter 5: Genealogy from Adam to Noah", "Chapter 6: Human wickedness and Noah's Ark", "Chapter 7: The Flood", "Chapter 8: End of the Flood and covenant",
+                "Chapter 9: God's covenant and Noah's drunkenness", "Chapter 10: The table of nations", "Chapter 11: The Tower of Babel", "Chapter 12: The call of Abram",
+                "Chapter 13: Abram and Lot separate", "Chapter 14: Abram rescues Lot", "Chapter 15: God's covenant with Abram", "Chapter 16: Hagar and Ishmael",
+                "Chapter 17: The covenant of circumcision", "Chapter 18: The three visitors", "Chapter 19: Destruction of Sodom and Gomorrah", "Chapter 20: Abraham and Abimelech",
+                "Chapter 21: Birth of Isaac", "Chapter 22: The sacrifice of Isaac", "Chapter 23: Death and burial of Sarah", "Chapter 24: Isaac and Rebekah",
+                "Chapter 25: Birth of Esau and Jacob", "Chapter 26: Isaac and Abimelech", "Chapter 27: Jacob gets the blessing", "Chapter 28: Jacob's dream at Bethel",
+                "Chapter 29: Jacob, Leah, and Rachel", "Chapter 30: The sons of Jacob", "Chapter 31: Jacob flees from Laban", "Chapter 32: Jacob wrestles with the angel",
+                "Chapter 33: Jacob and Esau reconcile", "Chapter 34: The defilement of Dinah", "Chapter 35: God blesses Jacob at Bethel", "Chapter 36: Descendants of Esau",
+                "Chapter 37: Joseph's dreams and his sale", "Chapter 38: Judah and Tamar", "Chapter 39: Joseph and Potiphar's wife", "Chapter 40: Joseph interprets dreams in prison",
+                "Chapter 41: Joseph interprets Pharaoh's dreams", "Chapter 42: Joseph's brothers in Egypt", "Chapter 43: Second journey to Egypt", "Chapter 44: Joseph's cup",
+                "Chapter 45: Joseph reveals himself", "Chapter 46: Jacob moves to Egypt", "Chapter 47: Jacob before Pharaoh", "Chapter 48: Jacob blesses Ephraim and Manasseh",
+                "Chapter 49: Jacob's prophetic blessings", "Chapter 50: Death of Jacob and Joseph"
+            ]
+        },
+        zh: {
+            mainTitle: "創世記",
+            subtitle: "拉丁武加大譯本",
+            chapters: [
+                "第 1 章：世界的創造", "第 2 章：伊甸園", "第 3 章：墮落與驅逐", "第 4 章：該隱與亞伯",
+                "第 5 章：亞當至挪亞的家譜", "第 6 章：人類的敗壞與挪亞方舟", "第 7 章：大洪水", "第 8 章：洪水結束與立約",
+                "第 9 章：上帝之約與挪亞醉酒", "第 10 章：列國表", "第 11 章：巴別塔", "第 12 章：上帝的呼召",
+                "第 13 章：亞伯蘭與羅得分開", "第 14 章：亞伯蘭營救羅得", "第 15 章：上帝與亞伯蘭立約", "第 16 章：夏甲與以實瑪利",
+                "第 17 章：割禮之約", "第 18 章：三位訪客", "第 19 章：所多瑪與蛾摩拉的毀滅", "第 20 章：亞伯拉罕與亞比米勒",
+                "第 21 章：以撒的誕生", "第 22 章：獻上以撒的試煉", "第 23 章：撒拉之死與埋葬", "第 24 章：以撒與利百加",
+                "第 25 章：以掃與雅各的誕生", "第 26 章：以撒與亞比米勒", "第 27 章：雅各騙取祝福", "第 28 章：雅各在伯特利的夢",
+                "第 29 章：雅各、利亞與拉結", "第 30 章：雅各的眾子", "第 31 章：雅各逃離拉班", "第 32 章：雅各與天使摔跤",
+                "第 33 章：雅各與以掃和好", "第 34 章：底拿受辱", "第 35 章：上帝在伯特利祝福雅各", "第 36 章：以掃的後代",
+                "第 37 章：約瑟的夢與被賣", "第 38 章：猶大與他瑪", "第 39 章：約瑟與波提乏之妻", "第 40 章：約瑟在獄中解夢",
+                "第 41 章：約瑟為法老解夢", "第 42 章：約瑟的兄弟們到埃及", "第 43 章：第二次埃及之行", "第 44 章：約瑟的銀杯",
+                "第 45 章：約瑟表明身份", "第 46 章：雅各遷至埃及", "第 47 章：雅各面見法老", "第 48 章：雅各祝福以法蓮與瑪拿西",
+                "第 49 章：雅各的臨終祝福", "第 50 章：雅各與約瑟之死"
+            ]
+        }
+    };
+
+    function generateChapterLinks(lang) {
+        chapterList.innerHTML = '';
+        const chapterTitles = translations[lang].chapters;
+        
+        chapterTitles.forEach((fullTitle, index) => {
+            const chapterNum = index + 1;
+            const parts = fullTitle.split(': ');
+            const title = parts[0];
+            const description = parts.slice(1).join(': ');
+
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = `capitulo${chapterNum}.html`;
+            link.innerHTML = `${title}<span class="chapter-title">${description || ''}</span>`;
+            
+            listItem.appendChild(link);
+            chapterList.appendChild(listItem);
+        });
+    }
+
+    function changeLanguage(lang) {
+        mainTitle.textContent = translations[lang].mainTitle;
+        subtitle.textContent = translations[lang].subtitle;
+
+        generateChapterLinks(lang);
+
+        langSwitcher.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active-lang');
+            if (btn.dataset.lang === lang) {
+                btn.classList.add('active-lang');
+            }
+        });
+    }
+
+    langSwitcher.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+            const lang = e.target.dataset.lang;
+            changeLanguage(lang);
+        }
+    });
+
+    changeLanguage('es');
+});
+</script>
 
 </body>
 </html>
